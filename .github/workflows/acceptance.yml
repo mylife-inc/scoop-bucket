@@ -1,0 +1,66 @@
+name: Public Scoop acceptance
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: scoop-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  install:
+    name: Scoop (${{ matrix.platform.target }}, ${{ matrix.shell }})
+    runs-on: ${{ matrix.platform.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - { os: windows-2022, target: x86_64-pc-windows-msvc }
+          - { os: windows-11-arm, target: aarch64-pc-windows-msvc }
+        shell: [powershell.exe, pwsh]
+    env:
+      ZEL_SCOOP_PUBLIC_VERSION: v0.2.0-rc.6
+      ZEL_SCOOP_SHELL: ${{ matrix.shell }}
+      ZEL_SCOOP_PUBLIC_BUCKET: ${{ github.event_name != 'pull_request' }}
+      TARGET: ${{ matrix.platform.target }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: bucket-source
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: mylife-inc/Zellij
+          ref: 77881402bcb8bd6c2e1d337221c17c9906b16a22
+          path: tooling
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: ScoopInstaller/Scoop
+          ref: e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f # v0.6.0
+          path: scoop-source
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Verify public archives and installers
+        working-directory: tooling
+        run: node scripts/fetch-scoop-release.mjs "$env:ZEL_SCOOP_PUBLIC_VERSION" dist
+      - name: Verify the checked-out bucket recipe
+        working-directory: tooling
+        shell: pwsh
+        run: |
+          @'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+          import { scoopManifest } from './scripts/scoop-manifest.mjs';
+          const expected = scoopManifest(process.env.ZEL_SCOOP_PUBLIC_VERSION, readFileSync('dist/x86_64-pc-windows-msvc/SHA256SUMS', 'utf8'));
+          assert.deepEqual(JSON.parse(readFileSync('../bucket-source/bucket/zel.json', 'utf8')), expected);
+          '@ | node --input-type=module
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Scoop lifecycle and public install
+        working-directory: tooling
+        run: node scripts/check-scoop.mjs dist ../scoop-source
