@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.6**, a development preview, for native Windows
+The current package is **0.2.0-rc.7**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 No Node or container runtime is installed. Portable Markdown websites work
 without a server; hosted websites and optional PDF generation need their
@@ -29,15 +29,15 @@ scoop uninstall zel
 ```
 
 Scoop owns this installation. `zel upgrade`, including `--force`, refuses to
-replace its binary. rc.6 prints generic package-manager guidance; use the Scoop
-commands above. Future CLI candidates provide the exact command in that message.
+replace its binary and prints `scoop update zel` before any network request.
+Use the Scoop commands above for updates.
 The package does not edit your PowerShell profile or install a completion script
 into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/examples/zellij-docs/content/02-cli/completions.mdx) for
 optional shell setup.
 
 For hosted commands, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.6` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.6)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.7` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.7)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
@@ -50,3 +50,9 @@ Scoop v0.6.0. It checks both CPU architectures under Windows PowerShell 5.1 and
 PowerShell 7, including a bad-checksum update, a fixture package-revision update,
 portable builds, ownership protection, public installation and uninstall.
 The fixture revision is only a test and does not claim a new CLI release.
+
+Maintainers may dispatch acceptance with `upgrade_from` set to a still-published
+previous version (for example `v0.2.0-rc.6`) before retirement. This additionally
+installs that real CLI from its checksummed HTTPS archive and upgrades it to the
+current release through an isolated Git bucket. Leaving the input empty avoids
+depending on retired downloads.

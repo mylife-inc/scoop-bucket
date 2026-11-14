@@ -4,6 +4,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      upgrade_from:
+        description: Optional still-published previous version for an actual CLI upgrade
+        type: string
+        default: ''
 permissions:
   contents: read
 concurrency:
@@ -22,7 +27,8 @@ jobs:
           - { os: windows-11-arm, target: aarch64-pc-windows-msvc }
         shell: [powershell.exe, pwsh]
     env:
-      ZEL_SCOOP_PUBLIC_VERSION: v0.2.0-rc.6
+      ZEL_SCOOP_PUBLIC_VERSION: v0.2.0-rc.7
+      ZEL_SCOOP_UPGRADE_FROM: ${{ inputs.upgrade_from }}
       ZEL_SCOOP_SHELL: ${{ matrix.shell }}
       ZEL_SCOOP_PUBLIC_BUCKET: ${{ github.event_name != 'pull_request' }}
       TARGET: ${{ matrix.platform.target }}
@@ -34,7 +40,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: mylife-inc/Zellij
-          ref: 77881402bcb8bd6c2e1d337221c17c9906b16a22
+          ref: 9e8ba4cfd23baed5ea409a0954a02e532153b6db
           path: tooling
           persist-credentials: false
       - uses: actions/checkout@v7
