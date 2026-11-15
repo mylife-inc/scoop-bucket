@@ -14,11 +14,15 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.7**, a development preview, for native Windows
+The current package is **0.2.0-rc.8**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 No Node or container runtime is installed. Portable Markdown websites work
 without a server; hosted websites and optional PDF generation need their
 documented container runtime.
+
+The five bundled starters include `book-classic`, `book-technical` and
+`book-study`. With `pdf.enabled: true`, both static and Next book images include
+a matching downloadable PDF; the toolchain stays outside the serving image.
 
 ## Update or remove
 
@@ -36,8 +40,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For hosted commands, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.7` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.7)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.8` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.8)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
@@ -52,7 +56,7 @@ portable builds, ownership protection, public installation and uninstall.
 The fixture revision is only a test and does not claim a new CLI release.
 
 Maintainers may dispatch acceptance with `upgrade_from` set to a still-published
-previous version (for example `v0.2.0-rc.6`) before retirement. This additionally
+previous version before retirement. This additionally
 installs that real CLI from its checksummed HTTPS archive and upgrades it to the
 current release through an isolated Git bucket. Leaving the input empty avoids
 depending on retired downloads.
