@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.8**, a development preview, for native Windows
+The current package is **0.2.0-rc.9**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 No Node or container runtime is installed. Portable Markdown websites work
 without a server; hosted websites and optional PDF generation need their
@@ -40,8 +40,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For hosted commands, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.8` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.8)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.9` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.9)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
