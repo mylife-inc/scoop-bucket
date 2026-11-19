@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.10**, a development preview, for native Windows
+The current package is **0.2.0-rc.11**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 No Node or container runtime is installed. Portable Markdown websites work
 without a server; hosted websites and optional PDF generation need their
@@ -25,7 +25,13 @@ The nine bundled starters include `book-classic`, `book-technical` and
 a matching downloadable PDF; the toolchain stays outside the serving image.
 Print supports English/French/German/Spanish LTR and Arabic RTL, pinned
 Amiri/Libertinus fonts and `pdf.style` customization. `zel create my-api -t api-platform`
-uses the new light/dark Kie theme.
+uses the light/dark Kie theme.
+
+The hosted section composer now includes video, layered layouts, semantic
+content, product selectors, scroll stories and reuse of eight built-in sections.
+Run `zel presets` to list nine editable section presets, or create one with
+`zel ns -p product-overview --out content/sections/overview.yaml`.
+These features require the matching rc.11 engine for hosted builds.
 
 ## Update or remove
 
@@ -43,8 +49,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For hosted commands, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.10` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.10)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.11` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.11)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
