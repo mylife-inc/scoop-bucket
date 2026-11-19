@@ -14,11 +14,13 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.11**, a development preview, for native Windows
+The current package is **0.2.0-rc.12**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
-No Node or container runtime is installed. Portable Markdown websites work
-without a server; hosted websites and optional PDF generation need their
-documented container runtime.
+Portable Markdown builds run entirely inside the CLI. Rich builds download and
+cache a private renderer; no separate Docker, Node.js, npm or Python installation
+is needed. Both outputs open by double-clicking `site/index.html`. Cached rich
+builds accept `--offline`. Explicit static/image builds, development and optional
+PDF generation retain their documented container prerequisites.
 
 The nine bundled starters include `book-classic`, `book-technical` and
 `book-study`. With `pdf.enabled: true`, both static and Next book images include
@@ -31,7 +33,7 @@ The hosted section composer now includes video, layered layouts, semantic
 content, product selectors, scroll stories and reuse of eight built-in sections.
 Run `zel presets` to list nine editable section presets, or create one with
 `zel ns -p product-overview --out content/sections/overview.yaml`.
-These features require the matching rc.11 engine for hosted builds.
+Rich builds use the automatically downloaded matching renderer.
 
 ## Update or remove
 
@@ -48,9 +50,9 @@ The package does not edit your PowerShell profile or install a completion script
 into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/examples/zellij-docs/content/02-cli/completions.mdx) for
 optional shell setup.
 
-For hosted commands, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.11` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.11)
+For commands that use a container, the matching engine is
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.12` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.12)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
