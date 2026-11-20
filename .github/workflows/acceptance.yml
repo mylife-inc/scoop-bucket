@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: mylife-inc/Zellij
-          ref: 9206950a35bf845dc3d639baac740f8073ddd7ee
+          ref: c1c7daaf302d239ad203a20c089d0cbf869e7471
           path: tooling
           persist-credentials: false
       - uses: actions/checkout@v7
