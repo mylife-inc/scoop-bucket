@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.12**, a development preview, for native Windows
+The current package is **0.2.0-rc.13**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
@@ -35,6 +35,8 @@ Run `zel presets` to list nine editable section presets, or create one with
 `zel ns -p product-overview --out content/sections/overview.yaml`.
 Rich builds use the automatically downloaded matching renderer.
 
+Scoop keeps the executable and shim in its managed directories. Zellij downloads use `ZELLIJ_HOME`, defaulting to `%USERPROFILE%\Dev\config\zellij`: renderers live under `cache\engines`, and remote templates under `cache\templates`. Set an absolute `ZELLIJ_HOME` to change the resource root. Standalone installers use its `bin` directory; Scoop retains its own installation paths. Existing caches are not silently moved.
+
 ## Update or remove
 
 ```powershell
@@ -51,8 +53,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.12` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.12)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.13` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.13)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
