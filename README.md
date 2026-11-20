@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.14**, a development preview, for native Windows
+The current package is **0.2.0-rc.15**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
@@ -60,8 +60,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.14` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.14)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.15` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.15)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
@@ -80,3 +80,7 @@ previous version before retirement. This additionally
 installs that real CLI from its checksummed HTTPS archive and upgrades it to the
 current release through an isolated Git bucket. Leaving the input empty avoids
 depending on retired downloads.
+
+The rc.15 release also includes verified WinGet manifests and ownership
+protection. Microsoft catalog acceptance remains separate; Scoop is the
+currently available managed Windows installation channel.
