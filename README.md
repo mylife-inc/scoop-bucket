@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.16**, a development preview, for native Windows
+The current package is **0.2.0-rc.17**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
@@ -60,8 +60,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.16` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.16)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.17` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.17)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
