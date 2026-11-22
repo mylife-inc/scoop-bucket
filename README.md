@@ -14,19 +14,19 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.17**, a development preview, for native Windows
+The current package is **0.2.0-rc.18**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
 is needed. Both outputs open by double-clicking `site/index.html`. Cached rich
-builds accept `--offline`. Explicit static/image builds, hosted `dev` and optional
-PDF generation retain their documented container prerequisites.
+builds accept `--offline`. Rich `--target static` builds share the cache for HTTP hosting. Image builds,
+hosted Next `dev` and optional PDF generation retain their documented container prerequisites.
 
 
 Rich `zel check`, `zel watch` and `zel view --watch` also use the cached renderer
 without separately installed tools. The first rich operation downloads it;
-`--offline` reuses the verified cache. Use `--target static` explicitly for the
-container/Next path. Validation reports source errors without executing authored
+`--offline` reuses the verified cache for both `file` and `static` targets.
+Static deployment builds and optional import validation also use that cache. Validation reports source errors without executing authored
 MDX; live preview retains the last successful site after an invalid edit.
 
 The nine bundled starters include `book-classic`, `book-technical` and
@@ -60,8 +60,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.17` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.17)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.18` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.18)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
