@@ -14,19 +14,20 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.20**, a development preview, for native Windows
+The current package is **0.2.0-rc.21**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
 is needed. Both outputs open by double-clicking `site/index.html`. Cached rich
 builds accept `--offline`. Rich `--target static` builds share the cache for HTTP hosting. Image builds,
-hosted Next `dev` and the default `container` PDF backend retain their documented container prerequisites.
-Use `zel pdf my-book --pdf-backend cached` or
-`zel build my-book --pdf --pdf-backend cached` for PDF generation without
-installed Docker, Node.js, Python or TeX. The optional compiler is about 12 MB
-and reuses the renderer's private Node; subsequent runs support `--offline`.
-Its matching sources are separate release downloads. Cached PDF stays opt-in
-in rc.20 and preserves the documented print-content limits.
+hosted Next `dev` and explicit `--pdf-backend container` retain their documented container prerequisites.
+Use `zel pdf my-book` for PDF only, or `zel bp my-book` for a website with a
+PDF download. Rc.21 uses the verified cached compiler by default, without installed
+Docker, Node.js, Python or TeX. The optional compiler is about 12 MB and reuses
+the renderer's private Node; subsequent runs support `--offline`. Its matching
+sources remain separate release downloads. PDF generation stays optional and
+preserves the documented print-content limits. `zel bs` builds an HTTP static
+site, `zel vw` previews and rebuilds edits, and `zel lint` runs deep/strict checks.
 
 Default `zel eject` and `zel new app` also need only `zel` to create editable
 Next.js wrappers. A separate version-matched source archive is downloaded into
@@ -71,8 +72,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.20` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.20)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.21` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.21)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
