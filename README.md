@@ -14,7 +14,7 @@ scoop install mylife-inc/zel
 zel --version
 ```
 
-The current package is **0.2.0-rc.24**, a development preview, for native Windows
+The current package is **0.2.0-rc.25**, a development preview, for native Windows
 x64 and ARM64. The manifest uses immutable release URLs and SHA-256 checksums.
 Portable Markdown builds run entirely inside the CLI. Rich builds download and
 cache a private renderer; no separate Docker, Node.js, npm or Python installation
@@ -63,6 +63,10 @@ Rich builds use the automatically downloaded matching renderer.
 
 Scoop keeps the executable and shim in its managed directories. Zellij downloads use `ZELLIJ_HOME`, defaulting to `%USERPROFILE%\Dev\config\zellij`: renderers live under `cache\engines`, remote templates under `cache\templates`, editable sources under `cache\sources`, development dependencies under `cache\development`, and PDF compilers under `cache\pdf`. Set an absolute `ZELLIJ_HOME` to change the resource root. Standalone installers use its `bin` directory; Scoop retains its own installation paths. Existing caches are not silently moved.
 
+Rc.25 fixes keyboard focus loss when desktop navigation changes during rapid
+resizing. Rebuild an existing website with this version to include the corrected
+renderer.
+
 ## Update or remove
 
 ```powershell
@@ -79,8 +83,8 @@ into it. See [CLI completions](https://github.com/mylife-inc/Zellij/blob/main/ex
 optional shell setup.
 
 For commands that use a container, the matching engine is
-`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.24` (already the CLI default).
-[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.24)
+`ghcr.io/mylife-inc/zellij-base:0.2.0-rc.25` (already the CLI default).
+[Release assets](https://github.com/mylife-inc/releases/releases/tag/zellij-v0.2.0-rc.25)
 and [source/issue tracker](https://github.com/mylife-inc/Zellij).
 
 ## Maintenance
@@ -100,6 +104,6 @@ installs that real CLI from its checksummed HTTPS archive and upgrades it to the
 current release through an isolated Git bucket. Leaving the input empty avoids
 depending on retired downloads.
 
-The rc.16 release also includes verified WinGet manifests and ownership
-protection. The rc.15 Microsoft catalog submission awaits moderator approval;
-Scoop is the currently available managed Windows installation channel.
+CLI releases also include verified WinGet manifests and ownership protection.
+Microsoft catalog acceptance is separate from this candidate verification;
+Scoop provides the verified managed installation path described here.
