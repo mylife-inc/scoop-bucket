@@ -27,7 +27,7 @@ jobs:
           - { os: windows-11-arm, target: aarch64-pc-windows-msvc }
         shell: [powershell.exe, pwsh]
     env:
-      ZEL_SCOOP_PUBLIC_VERSION: v0.2.0-rc.24
+      ZEL_SCOOP_PUBLIC_VERSION: v0.2.0-rc.25
       ZEL_SCOOP_UPGRADE_FROM: ${{ inputs.upgrade_from }}
       ZEL_SCOOP_SHELL: ${{ matrix.shell }}
       ZEL_SCOOP_PUBLIC_BUCKET: ${{ github.event_name != 'pull_request' }}
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: mylife-inc/Zellij
-          ref: 2c3b7daa3be5b0f218b4584a8074e77b4f25d848
+          ref: 988e3212a6dc127a9c2ab2556657ad02d5861aa3
           path: tooling
           persist-credentials: false
       - uses: actions/checkout@v7
